@@ -3,10 +3,11 @@ program MineIdle;
 uses
     Globals,
     MineOps,
-    Render;
+    NumOps,
+    Render,
+    TextDraw;
 
 var
-   m: Mine;
    ta: Text_attr;
    bta: Text_attr;
 begin
@@ -17,6 +18,10 @@ begin
     ta.bg := 0;
     clear_screen(ta);
 
-    box_at(10, 5, 20, 8, BORDER_DOUBLE, ta);
-    fill_box_at(10, 10, 50, 14, Chr(177), ta);
+    g_mine.Init(MAX_MINE_WIDTH, MAX_MINE_HEIGHT, DIRT_MINE);
+    g_mine.fill;
+    
+    g_render_components.render_full_mine := True;
+    render_mine_state;
+
 end.

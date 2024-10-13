@@ -2,40 +2,40 @@ unit MineOps;
 
 interface
 
-uses
-    Globals;
+    uses
+        Globals;
 
-type
-    MineType = (
-        DIRT_MINE,
-        DIAMOND_MINE
-    );
+    type
+        MineType = (
+            DIRT_MINE,
+            DIAMOND_MINE
+        );
 
-    MineSquareType = (
-        SQUARE_EMPTY,
-        SQUARE_DIRT,
-        SQUARE_ROCK
-    );
+        MineSquareType = (
+            SQUARE_EMPTY,
+            SQUARE_DIRT,
+            SQUARE_ROCK
+        );
 
-    { A mine. It's a grid of squares with dirt and rock.  Rocks are fewer but 
-      take twice as long to break.}
-    Mine = object
-        { The actual width and height. }
-        w: Integer;
-        h: Integer;
-        mine_type: MineType;
-        color: Text_attr;
-        data: array[0..(MAX_MINE_WIDTH * MAX_MINE_HEIGHT)] of MineSquareType;
-        { How long does it take to clear a base square with no upgrades }
-        base_break_rate: Single;
-        procedure Init(dw: Integer; dh: Integer; mt: MineType);
-        procedure clear;
-        procedure fill;
-        procedure dig(bw: Integer; bh: Integer);
-        procedure get_base_break_time(bw: Integer; bh: Integer; var break_time: Single);
-    end;
-
+        { A mine. It's a grid of squares with dirt and rock.  Rocks are fewer but 
+          take twice as long to break.}
+        Mine = object
+            { The actual width and height. }
+            w: Integer;
+            h: Integer;
+            mine_type: MineType;
+            color: Text_attr;
+            data: array[0..(MAX_MINE_WIDTH * MAX_MINE_HEIGHT)] of MineSquareType;
+            { How long does it take to clear a base square with no upgrades }
+            base_break_rate: Single;
+            procedure Init(dw: Integer; dh: Integer; mt: MineType);
+            procedure clear;
+            procedure fill;
+            procedure dig(bw: Integer; bh: Integer);
+            procedure get_base_break_time(bw: Integer; bh: Integer; var break_time: Single);
+        end;
 var
+
     g_mine: Mine;
 
 implementation
