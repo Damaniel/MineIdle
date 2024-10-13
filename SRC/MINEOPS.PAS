@@ -24,6 +24,7 @@ type
         w: Integer;
         h: Integer;
         mine_type: MineType;
+        color: Text_attr;
         data: array[0..(MAX_MINE_WIDTH * MAX_MINE_HEIGHT)] of MineSquareType;
         { How long does it take to clear a base square with no upgrades }
         base_break_rate: Single;
@@ -54,6 +55,8 @@ implementation
         w := dw;
         h := dh;
         mine_type := mt;
+        color.fg := 15;
+        color.bg := 0;
         clear;
     end;
 

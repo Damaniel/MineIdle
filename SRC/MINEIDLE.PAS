@@ -7,14 +7,16 @@ uses
 
 var
    m: Mine;
+   ta: Text_attr;
+   bta: Text_attr;
 begin
 
     Randomize;
-    init_render_settings;
 
-    m.Init(MAX_MINE_WIDTH, MAX_MINE_HEIGHT, DIRT_MINE);
-    m.fill;
+    ta.fg := 7;
+    ta.bg := 0;
+    clear_screen(ta);
 
-    render_mine(m, 10, 5);
-
+    box_at(10, 5, 20, 8, BORDER_DOUBLE, ta);
+    fill_box_at(10, 10, 50, 14, Chr(177), ta);
 end.

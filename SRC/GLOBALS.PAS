@@ -9,12 +9,13 @@ const
       selected.  If the number is lower than ROCK_CUTOFF then the square 
       will be created as rock, otherwise as dirt. }
     ROCK_CUTOFF = 20;
+
 type
     Text_attr = record
         fg: Byte;
         bg: Byte;
     end;
-
+    
 implementation
 
 end.
