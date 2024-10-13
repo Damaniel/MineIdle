@@ -1,21 +1,20 @@
 program MineIdle;
 
 uses
-  NumOps,
-  Render,
-  State,
-  Globals;
+    Globals,
+    MineOps,
+    Render;
 
 var
-   e: Extended;
-   s: String;
-   t: Text_attr;
+   m: Mine;
 begin
 
+    Randomize;
     init_render_settings;
 
-    t.fg := 14;
-    t.bg := 0;
-    draw_hline(1,80,1, Chr(196), t);
-    draw_vline(10, 10, 20, Chr(179), t);
+    m.Init(MAX_MINE_WIDTH, MAX_MINE_HEIGHT, DIRT_MINE);
+    m.fill;
+
+    render_mine(m, 10, 5);
+
 end.
