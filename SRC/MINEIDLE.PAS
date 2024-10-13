@@ -1,33 +1,21 @@
 program MineIdle;
 
 uses
-  NumOps;
+  NumOps,
+  Render,
+  State,
+  Globals;
 
 var
    e: Extended;
    s: String;
+   t: Text_attr;
 begin
-     e := 2;
-     extToString(e, True, s);
-     Writeln(s);
 
-     e := 21;
-     extToString(e, True, s);
-     Writeln(s);
+    init_render_settings;
 
-     e := 213;
-     extToString(e, True, s);
-     Writeln(s);
-
-     e := 2135;
-     extToString(e, True, s);
-     Writeln(s);
-
-     e := 21358;
-     extToString(e, True, s);
-     Writeln(s);
-
-     e := 1.2349e23;
-     extToString(e, True, s);
-     Writeln(s);
+    t.fg := 14;
+    t.bg := 0;
+    draw_hline(1,80,1, Chr(196), t);
+    draw_vline(10, 10, 20, Chr(179), t);
 end.

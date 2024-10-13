@@ -42,10 +42,10 @@ begin
 
   { Extract the first 4 non-whitespace characters and the last 4
     characters in the string to prefix and suffix, respectively. }
-  for i:=0 to 4 do
+  for i:=1 to 4 do
   begin
-    prefix[i+1] := extStr[i+2];
-    suffix[i+1] := extStr[len - 4 + i + 1];
+    prefix[i] := extStr[i+1];
+    suffix[i] := extStr[len - 4 + i];
   end;
   prefix[0] := #4;
   suffix[0] := #4;
