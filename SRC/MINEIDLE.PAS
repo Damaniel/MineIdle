@@ -5,11 +5,22 @@ uses
     MineOps,
     NumOps,
     Render,
-    TextDraw;
+    TextDraw,
+    timer;
+
+type
+
+    Player = object
+        mine_x, mine_y, mine_depth: Integer;
+        field_x, field_y, field_depth: Integer;
+        current_mine: MineType;
+        remaining_action_time, total_action_time: Single;
+    end;
 
 var
    ta: Text_attr;
    bta: Text_attr;
+   g_player: Player;
 begin
 
     Randomize;
@@ -17,11 +28,5 @@ begin
     ta.fg := 7;
     ta.bg := 0;
     clear_screen(ta);
-
-    g_mine.Init(MAX_MINE_WIDTH, MAX_MINE_HEIGHT, DIRT_MINE);
-    g_mine.fill;
     
-    g_render_components.render_full_mine := True;
-    render_mine_state;
-
 end.
